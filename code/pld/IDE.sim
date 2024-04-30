@@ -1,0 +1,159 @@
+%SIGNAL
+PIN   0 =  A1 
+PIN   0 =  A2 
+PIN   0 =  A3 
+PIN   0 =  A4 
+PIN   0 =  A5 
+PIN   0 =  A6 
+PIN   0 =  A7 
+PIN   0 =  A8 
+PIN   0 =  A9 
+PIN   0 =  A10 
+PIN   0 =  A11 
+PIN   0 =  A12 
+PIN   0 =  A13 
+PIN   0 =  A14 
+PIN   0 =  A15 
+PIN   0 =  A16 
+PIN   0 =  A17 
+PIN   0 =  A18 
+PIN   0 =  A19 
+PIN   0 =  CLOCK 
+PIN   0 = !CS1 
+PIN   0 = !CS3 
+PIN  88 =  Ca 
+PIN  87 =  Cb 
+PIN   0 =  DTACK 
+PIN  86 =  DTACK_ENABLE 
+PIN   0 =  FC0 
+PIN   0 =  FC1 
+PIN   0 =  FC2 
+PIN   0 = !IOSEL 
+PIN   0 = !LDS 
+PIN   0 = !LSEL 
+PIN   0 = !RD 
+PIN   0 =  R_nW 
+PIN  85 =  SELECT 
+PIN   0 = !UDS 
+PIN   0 = !USEL 
+PIN   0 = !VPA 
+PIN   0 = !WR 
+%END
+
+%FIELD
+FIELD STATE = Cb,Ca,DTACK,DTACK_ENABLE
+FIELD addr = A19,A18,A17,A16,A15,A14,A13,A12,A11,A10,A9,A8,A7,A6,A5
+%END
+
+%EQUATION
+CS1 =>
+    !A4 & SELECT
+
+CS3 =>
+    A4 & SELECT
+
+Ca.d  =>
+    !Ca & !Cb & !DTACK & !DTACK_ENABLE & LDS & R_nW & SELECT
+  # !Ca & !Cb & !DTACK & !DTACK_ENABLE & R_nW & SELECT & UDS
+  # Ca & Cb & DTACK & DTACK_ENABLE
+  # Ca & Cb & !DTACK & !DTACK_ENABLE
+  # Ca & Cb & !DTACK & DTACK_ENABLE & !LDS & !UDS
+  # Ca & Cb & !DTACK & DTACK_ENABLE & LDS
+  # Ca & Cb & !DTACK & DTACK_ENABLE & UDS
+
+Ca.ckmux  =>
+    CLOCK
+
+Ca.sp  =>
+    0 
+
+Cb.d  =>
+    !Ca & !Cb & !DTACK & !DTACK_ENABLE & LDS & R_nW & SELECT
+  # !Ca & !Cb & !DTACK & !DTACK_ENABLE & R_nW & SELECT & UDS
+  # Ca & Cb & DTACK & DTACK_ENABLE
+  # Ca & Cb & !DTACK & !DTACK_ENABLE
+  # Ca & Cb & !DTACK & DTACK_ENABLE & !LDS & !UDS
+  # Ca & Cb & !DTACK & DTACK_ENABLE & LDS
+  # Ca & Cb & !DTACK & DTACK_ENABLE & UDS
+
+Cb.ckmux  =>
+    CLOCK
+
+Cb.sp  =>
+    0 
+
+DS =>
+    UDS
+  # LDS
+
+DTACK.d  =>
+    !Ca & !Cb & DTACK & DTACK_ENABLE
+  # Ca & Cb & !DTACK & DTACK_ENABLE & !LDS & !UDS
+  # Ca & Cb & DTACK & DTACK_ENABLE
+  # !Ca & !Cb & !DTACK & DTACK_ENABLE & !LDS & !UDS
+
+DTACK.ckmux  =>
+    CLOCK
+
+DTACK.oe  =>
+    DTACK_ENABLE
+
+DTACK.sp  =>
+    0 
+
+DTACK_ENABLE.d  =>
+    !Ca & !Cb & !DTACK & DTACK_ENABLE & UDS
+  # !Ca & !Cb & !DTACK & !DTACK_ENABLE & LDS & !R_nW & SELECT
+  # !Ca & !Cb & !DTACK & !DTACK_ENABLE & !R_nW & SELECT & UDS
+  # Ca & Cb & !DTACK & !DTACK_ENABLE
+  # Ca & Cb & !DTACK & DTACK_ENABLE & !LDS & !UDS
+  # Ca & Cb & !DTACK & DTACK_ENABLE & LDS
+  # Ca & Cb & !DTACK & DTACK_ENABLE & UDS
+  # !Ca & !Cb & !DTACK & DTACK_ENABLE & !LDS & !UDS
+  # !Ca & !Cb & !DTACK & DTACK_ENABLE & LDS
+
+DTACK_ENABLE.ckmux  =>
+    CLOCK
+
+DTACK_ENABLE.sp  =>
+    0 
+
+LSEL =>
+    LDS & SELECT
+
+RD =>
+    Ca & R_nW & SELECT & UDS
+  # Ca & LDS & R_nW & SELECT
+
+SELECT =>
+    !IOSEL
+  # !A19
+  # A18
+  # A17
+  # A16
+  # A15
+  # A14
+  # A13
+  # A12
+  # A11
+  # A10
+  # A9
+  # A8
+  # A7
+  # !A6
+  # A5
+
+USEL =>
+    SELECT & UDS
+
+VPA =>
+    1 
+
+VPA.oe  =>
+    A1 & A2 & !A3 & FC0 & FC1 & FC2
+
+WR =>
+    LDS & !R_nW & SELECT
+  # !R_nW & SELECT & UDS
+
+%END
