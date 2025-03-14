@@ -50,6 +50,7 @@ FIELD addr = [A19..5];
  0x   F    8    0    0  4/5  F-0
 */
 
+/* Does the ! work ? */
 SELECT = !(IOSEL & addr:'b'XXXX100000000000010XXXXX);
 
 DTACK.sp = 'b'0;
@@ -60,7 +61,6 @@ Ca.sp = 'b'0;
 
 DS = UDS # LDS;
 FIELD STATE = [Cb, Ca, DTACK, DTACK_ENABLE];
-STATE.ckmux = CLOCK;
 
 SEQUENCE STATE {
     PRESENT 'b'0000

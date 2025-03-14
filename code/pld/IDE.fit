@@ -1,39 +1,36 @@
-Atmel ATF1504AS Fitter Version 1.8.7.8 ,running Tue Apr 16 11:54:02 2024
+Atmel ATF1504 Fitter Version 1918 ,running Fri Dec 27 10:16:50 2024
 
 
-fit1504 Z:\USERS\MALCOLM\ROSCO-IDE\CODE\PLD\IDE.tt2 -CUPL -dev P1504C84 -JTAG ON
 
+
+fit1504
+-i ide.edif
+-ifmt edif
+-o ide.jed
+-lib Z:\Users\malcolm\atf15xx_yosys\vendor\aprim.lib
+-tech ATF1504AS
+-device PLCC84
+-tpd 15
+-preassign keep
 
 ****** Initial fitting strategy and property ******
- Pla_in_file = IDE.tt2
- Pla_out_file = IDE.tt3
- Jedec_file = IDE.jed
- Vector_file = IDE.tmv
- verilog_file = IDE.vt
- Time_file = 
- Log_file = IDE.fit
- err_file = 
+ Netlist_in_file = ide.edif
+ Netlist_out_file = ide.tt3
+ Jedec_file = ide.jed
+ Log_file = ide.fit
  Device_name = PLCC84
- Module_name = 
+ Tech_name = ATF1504AS 
  Package_type = PLCC
- Preassign_file = 
- Property_file = 
- Sleep_mode = 
- Preassignment = 
+ Preassignment = keep 
  Security_mode = OFF
- Pin_keep_mode = ON
- Dedicated_input_clock = 
- Dedicated_input_reset = 
- Dedicated_input_oe = 
- supporter = CUPL
+ Pin-Keeper = OFF
+ supporter = ABEL
  optimize = ON
- Soft_buffer = 
  Xor_synthesis = OFF
- Foldback_logic =  on
- Expander = 
+ Foldback_logic = OFF
  Cascade_logic = OFF
- Dedicated_input = 
- Output_fast = OFF
+ Output_fast = ON
+ SSTL_input = off
  *******************************
  Power down pin 1 = OFF
  Power down pin 2 = OFF
@@ -47,14 +44,16 @@ fit1504 Z:\USERS\MALCOLM\ROSCO-IDE\CODE\PLD\IDE.tt2 -CUPL -dev P1504C84 -JTAG ON
  ITD1 = ON
  ITD2 = ON
  Fast_inlatch = off
- *******************************
+ TPD = 15
+ Latch_synthesis = off 
+ Push_gate = on 
+ Verilog_sim = off 
+ VHDL_sim = off 
+ Out_Edif = off 
+ Logic Doubling = off 
+ ****** End of fitting strategy and property ******
 ---------------------------------------------------------
  Fitter_Pass 1, Preassign = KEEP, LOGIC_DOUBLING : OFF 
- ... 
-## ERROR : Bad user pin assignement : 88
- ## ERROR : Bad user pin assignement 
----------------------------------------------------------
- Fitter_Pass 2, Preassign = KEEP, NODE ASSIGN : OFF 
  ... 
 
 Performing global Output Enable pin assignments ...
@@ -66,278 +65,234 @@ Performing global pin assignments ...
 
 Final global control pins assignment (if applicable)...
 -------------------------------------------------------
-CLOCK assigned to pin  83
 
 
 
 Performing input pin pre-assignments ...
 ------------------------------------
-CLOCK assigned to pin  83
+DTACK_n.OE equation needs patching.
+1 control equation needs patching
 
 Attempt to place floating signals ...
 ------------------------------------
-LDS is placed at pin 22 (MC 1)
-UDS is placed at pin 21 (MC 2)
-DTACK_ENABLE is placed at feedback node 603 (MC 3)
-Ca is placed at feedback node 604 (MC 4)
-DTACK_ENABLE_P is placed at pin 17 (MC 5)
-Cb_P is placed at pin 16 (MC 6)
-DTACK_P is placed at pin 15 (MC 7)
+A_13 is placed at pin 22 (MC 1)
+A_14 is placed at pin 21 (MC 2)
+A_15 is placed at pin 20 (MC 3)
+A_16 is placed at pin 18 (MC 4)
+A_17 is placed at pin 17 (MC 5)
+A_18 is placed at pin 16 (MC 6)
+UDS_n is placed at pin 15 (MC 7)
 TDI is placed at pin 14 (MC 8)
-Cb is placed at feedback node 608 (MC 8)
-Ca_P is placed at pin 12 (MC 9)
-USEL is placed at pin 11 (MC 10)
-LSEL is placed at pin 10 (MC 11)
-CS3 is placed at pin 9 (MC 12)
-CS1 is placed at pin 8 (MC 13)
-RD is placed at pin 6 (MC 14)
-WR is placed at pin 5 (MC 15)
-SELECT is placed at foldback expander node 315 (MC 15)
-DTACK is placed at pin 4 (MC 16)
-R_nW is placed at pin 41 (MC 17)
-A5 is placed at pin 40 (MC 18)
-A6 is placed at pin 39 (MC 19)
-A7 is placed at pin 37 (MC 20)
-A8 is placed at pin 36 (MC 21)
-A9 is placed at pin 35 (MC 22)
-A10 is placed at pin 34 (MC 23)
-A11 is placed at pin 33 (MC 24)
-A12 is placed at pin 31 (MC 25)
-A13 is placed at pin 30 (MC 26)
-A14 is placed at pin 29 (MC 27)
-A15 is placed at pin 28 (MC 28)
-A16 is placed at pin 27 (MC 29)
-A17 is placed at pin 25 (MC 30)
-VPA is placed at pin 24 (MC 31)
+DTACK_n.OE is placed at feedback node 608 (MC 8)
+IOSEL_n is placed at pin 12 (MC 9)
+A_0 is placed at pin 11 (MC 10)
+AS_n is placed at pin 10 (MC 11)
+VPA is placed at pin 8 (MC 13)
+IDEBUF_n is placed at pin 5 (MC 15)
+DTACK_n is placed at pin 4 (MC 16)
+A_1 is placed at pin 37 (MC 20)
+A_2 is placed at pin 36 (MC 21)
+A_3 is placed at pin 35 (MC 22)
+A_4 is placed at pin 34 (MC 23)
+A_5 is placed at pin 33 (MC 24)
+A_6 is placed at pin 31 (MC 25)
+A_7 is placed at pin 30 (MC 26)
+A_8 is placed at pin 29 (MC 27)
+A_9 is placed at pin 28 (MC 28)
+A_10 is placed at pin 27 (MC 29)
+A_11 is placed at pin 25 (MC 30)
+A_12 is placed at pin 24 (MC 31)
 TMS is placed at pin 23 (MC 32)
-A18 is placed at pin 44 (MC 33)
-A19 is placed at pin 45 (MC 34)
-IOSEL is placed at pin 46 (MC 35)
-A4 is placed at pin 48 (MC 36)
-A1 is placed at pin 49 (MC 37)
-A2 is placed at pin 50 (MC 38)
-A3 is placed at pin 51 (MC 39)
-FC0 is placed at pin 52 (MC 40)
-FC1 is placed at pin 54 (MC 41)
-FC2 is placed at pin 55 (MC 42)
 TCK is placed at pin 62 (MC 48)
+IDEWR_n is placed at pin 68 (MC 53)
+IDERD_n is placed at pin 69 (MC 54)
+RW is placed at pin 70 (MC 55)
 TDO is placed at pin 71 (MC 56)
+IDECS_n is placed at pin 77 (MC 61)
+FC2 is placed at pin 79 (MC 62)
+FC1 is placed at pin 80 (MC 63)
+FC0 is placed at pin 81 (MC 64)
 
-                                                                                    
-                                                                                    
-                                                                                    
-                                                                                    
-                                    D        C                                      
-                     U L            T        L                                      
-                     S S  C C G     A V      O G       V                           
-                     E E  S S N R W C C      C N       C                           
-                     L L  3 1 D D R K C      K D       C                           
-                    -------------------------------------------                     
-                   / 11   9   7   5   3   1  83  81  79  77  75 \                   
-                  /    10   8   6   4   2  84  82  80  78  76    \                  
-            Ca_P | 12                    (*)                   74 |                 
-             VCC | 13                                          73 |                 
-             TDI | 14                                          72 | GND             
-         DTACK_P | 15                                          71 | TDO             
-            Cb_P | 16                                          70 |                 
-  DTACK_ENABLE_P | 17                                          69 |                 
-                 | 18                                          68 |                 
-             GND | 19                                          67 |                 
-                 | 20                                          66 | VCC             
-             UDS | 21                                          65 |                 
-             LDS | 22                 ATF1504                  64 |                 
-             TMS | 23               84-Lead PLCC               63 |                 
-             VPA | 24                                          62 | TCK             
-             A17 | 25                                          61 |                 
-             VCC | 26                                          60 |                 
-             A16 | 27                                          59 | GND             
-             A15 | 28                                          58 |                 
-             A14 | 29                                          57 |                 
-             A13 | 30                                          56 |                 
-             A12 | 31                                          55 | FC2             
-             GND | 32                                          54 | FC1             
-                  \     34  36  38  40  42  44  46  48  50  52   /                  
-                   \  33  35  37  39  41  43  45  47  49  51  53/                   
-              	    --------------------------------------------                    
-                      A A A A A V A A R G V A A I G A A A A F V                     
-                      1 1 9 8 7 C 6 5 _ N C 1 1 O N 4 1 2 3 C C                     
-                      1 0       C     n D C 8 9 S D         0 C                     
-                                      W         E                                   
-                                                L                                   
-
+                                       I                                            
+                                       D  D                                I        
+                                       E  T                                D        
+                                       B  A                                E        
+                        A              U  C                                C        
+                     A  S     V  G     F  K  V              G  F  F  F  V  S        
+                     _  _  N  P  N  N  _  _  C  N  N  N  N  N  C  C  C  C  _  N  N  
+                     0  n  C  A  D  C  n  n  C  C  C  C  C  D  0  1  2  C  n  C  C  
+                 +------------------------------------------------------------------+
+                 |  11 10  9  8  7  6  5  4  3  2  1 84 83 82 81 80 79 78 77 76 75  |
+          IOSEL_n| 12                                                            74 |NC
+              VCC| 13                                                            73 |NC
+              TDI| 14                                                            72 |GND
+            UDS_n| 15                                                            71 |TDO
+             A_18| 16                                                            70 |RW
+             A_17| 17                                                            69 |IDERD_n
+             A_16| 18                                                            68 |IDEWR_n
+              GND| 19                                                            67 |NC
+             A_15| 20                                                            66 |VCC
+             A_14| 21                                                            65 |NC
+             A_13| 22                           ATF1504                          64 |NC
+              TMS| 23                         84-Lead PLCC                       63 |NC
+             A_12| 24                                                            62 |TCK
+             A_11| 25                                                            61 |NC
+              VCC| 26                                                            60 |NC
+             A_10| 27                                                            59 |GND
+              A_9| 28                                                            58 |NC
+              A_8| 29                                                            57 |NC
+              A_7| 30                                                            56 |NC
+              A_6| 31                                                            55 |NC
+              GND| 32                                                            54 |NC
+                 |  33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53  |
+                 +------------------------------------------------------------------+
+                     A  A  A  A  A  V  N  N  N  G  V  N  N  N  G  N  N  N  N  N  V  
+                     _  _  _  _  _  C  C  C  C  N  C  C  C  C  N  C  C  C  C  C  C  
+                     5  4  3  2  1  C           D  C           D                 C  
 
 
-VCC = Supply Voltage pin which must be connected to (5.0V or 3.0V)
+
+
+VCC = Supply Voltage pin for the device core
 
 GND = GND pin which must be connected to ground
 
-TMS,TDI,TDO,TDI = JTAG pins which must reserved for the JTAG interface
+TMS,TDI,TDO,TDI = JTAG pins reserved for JTAG interface
 
 NC = Unused I/O pins which must be unconnected on the board
 
 Universal-Interconnect-Multiplexer assignments
 ------------------------------------------------
-FanIn assignment for block A [24]
+FanIn assignment for block A [25]
 {
-A16,A10,A8,A17,A9,A11,A14,A19,A12,A4,A13,A6,A5,A7,A15,A18,
-Ca,Cb,
-DTACK_ENABLE,DTACK,
-IOSEL,
-LDS,
-R_nW,
-UDS,
+A_12,A_2,A_10,A_13,A_11,A_14,A_15,A_0,A_16,A_4,A_3,A_5,A_8,A_17,A_18,A_7,A_6,A_1,A_9,
+DTACK_n.OE,
+FC0,FC1,FC2,
+IOSEL_n,
+UDS_n,
 }
 Multiplexer assignment for block A
-LDS			(MC5	P)   : MUX 1		Ref (A1p)
-A16			(MC19	P)   : MUX 2		Ref (B29p)
-A10			(MC13	P)   : MUX 3		Ref (B23p)
-Ca			(MC2	FB)  : MUX 4		Ref (A4fb)
-A8			(MC11	P)   : MUX 5		Ref (B21p)
-A17			(MC20	P)   : MUX 6		Ref (B30p)
-A9			(MC12	P)   : MUX 7		Ref (B22p)
-A11			(MC14	P)   : MUX 13		Ref (B24p)
-UDS			(MC6	P)   : MUX 15		Ref (A2p)
-DTACK_ENABLE		(MC1	FB)  : MUX 16		Ref (A3fb)
-A14			(MC17	P)   : MUX 20		Ref (B27p)
-A19			(MC22	P)   : MUX 21		Ref (C34p)
-A12			(MC15	P)   : MUX 22		Ref (B25p)
-A4			(MC24	P)   : MUX 23		Ref (C36p)
-A13			(MC16	P)   : MUX 24		Ref (B26p)
-R_nW			(MC7	P)   : MUX 25		Ref (B17p)
-IOSEL			(MC23	P)   : MUX 27		Ref (C35p)
-DTACK			(MC4	P)   : MUX 30		Ref (A16p)
-A6			(MC9	P)   : MUX 31		Ref (B19p)
-Cb			(MC3	FB)  : MUX 32		Ref (A8fb)
-A5			(MC8	P)   : MUX 33		Ref (B18p)
-A7			(MC10	P)   : MUX 35		Ref (B20p)
-A15			(MC18	P)   : MUX 36		Ref (B28p)
-A18			(MC21	P)   : MUX 37		Ref (C33p)
+A_12			(MC12	P)   : MUX 0		Ref (B31p)
+A_2			(MC25	P)   : MUX 1		Ref (B21p)
+A_10			(MC14	P)   : MUX 2		Ref (B29p)
+A_13			(MC11	P)   : MUX 3		Ref (A1p)
+A_11			(MC13	P)   : MUX 4		Ref (B30p)
+A_14			(MC10	P)   : MUX 5		Ref (A2p)
+A_15			(MC9	P)   : MUX 7		Ref (A3p)
+A_0			(MC24	P)   : MUX 8		Ref (A10p)
+A_16			(MC8	P)   : MUX 9		Ref (A4p)
+A_4			(MC20	P)   : MUX 11		Ref (B23p)
+IOSEL_n			(MC22	P)   : MUX 12		Ref (A9p)
+A_3			(MC21	P)   : MUX 13		Ref (B22p)
+A_5			(MC19	P)   : MUX 15		Ref (B24p)
+A_8			(MC16	P)   : MUX 20		Ref (B27p)
+A_17			(MC7	P)   : MUX 21		Ref (A5p)
+FC0			(MC5	P)   : MUX 22		Ref (D64p)
+FC1			(MC3	P)   : MUX 24		Ref (D63p)
+A_18			(MC6	P)   : MUX 25		Ref (A6p)
+A_7			(MC17	P)   : MUX 26		Ref (B26p)
+UDS_n			(MC2	P)   : MUX 27		Ref (A7p)
+FC2			(MC4	P)   : MUX 30		Ref (D62p)
+DTACK_n.OE		(MC1	FB)  : MUX 32		Ref (A8fb)
+A_6			(MC18	P)   : MUX 34		Ref (B25p)
+A_1			(MC23	P)   : MUX 35		Ref (B20p)
+A_9			(MC15	P)   : MUX 36		Ref (B28p)
 
-FanIn assignment for block B [6]
+FanIn assignment for block D [23]
 {
-A2,A3,A1,
-FC0,FC2,FC1,
+A_13,A_10,A_4,A_11,A_14,AS_n,A_3,A_12,A_16,A_15,A_5,A_8,A_17,A_18,A_7,A_6,A_9,
+FC0,FC1,FC2,
+IOSEL_n,
+RW,
+UDS_n,
 }
-Multiplexer assignment for block B
-A2			(MC2	P)   : MUX 1		Ref (C38p)
-FC0			(MC4	P)   : MUX 3		Ref (C40p)
-A3			(MC3	P)   : MUX 5		Ref (C39p)
-A1			(MC1	P)   : MUX 17		Ref (C37p)
-FC2			(MC6	P)   : MUX 22		Ref (C42p)
-FC1			(MC5	P)   : MUX 32		Ref (C41p)
+Multiplexer assignment for block D
+IOSEL_n			(MC21	P)   : MUX 0		Ref (A9p)
+A_13			(MC10	P)   : MUX 1		Ref (A1p)
+A_10			(MC13	P)   : MUX 2		Ref (B29p)
+A_4			(MC19	P)   : MUX 3		Ref (B23p)
+A_11			(MC12	P)   : MUX 4		Ref (B30p)
+A_14			(MC9	P)   : MUX 5		Ref (A2p)
+AS_n			(MC22	P)   : MUX 6		Ref (A11p)
+A_3			(MC20	P)   : MUX 7		Ref (B22p)
+A_12			(MC11	P)   : MUX 8		Ref (B31p)
+A_16			(MC7	P)   : MUX 9		Ref (A4p)
+A_15			(MC8	P)   : MUX 11		Ref (A3p)
+A_5			(MC18	P)   : MUX 15		Ref (B24p)
+A_8			(MC15	P)   : MUX 20		Ref (B27p)
+A_17			(MC6	P)   : MUX 21		Ref (A5p)
+FC0			(MC4	P)   : MUX 22		Ref (D64p)
+FC1			(MC2	P)   : MUX 24		Ref (D63p)
+A_18			(MC5	P)   : MUX 25		Ref (A6p)
+A_7			(MC16	P)   : MUX 26		Ref (B26p)
+UDS_n			(MC1	P)   : MUX 27		Ref (A7p)
+RW			(MC23	P)   : MUX 29		Ref (D55p)
+FC2			(MC3	P)   : MUX 30		Ref (D62p)
+A_6			(MC17	P)   : MUX 34		Ref (B25p)
+A_9			(MC14	P)   : MUX 36		Ref (B28p)
 
-Creating JEDEC file Z:\USERS\MALCOLM\ROSCO-IDE\CODE\PLD\IDE.jed ...
+Creating JEDEC file ide.jed ...
 
 PLCC84 programmed logic:
 -----------------------------------
-Ca_P = 0;
+!IDERD_n = (!AS_n & RW & !UDS_n);
 
-Cb_P = 0;
+IDEBUF_n = UDS_n;
 
-DTACK.D = ((!Ca.Q & !Cb.Q & DTACK_ENABLE.Q & DTACK.Q)
-	# (!Ca.Q & !Cb.Q & DTACK_ENABLE.Q & LDS & UDS)
-	# (Ca.Q & Cb.Q & DTACK_ENABLE.Q & DTACK.Q)
-	# (Ca.Q & Cb.Q & DTACK_ENABLE.Q & LDS & UDS));
+DTACK_n = 0;
 
-DTACK_P = 0;
+!IDEWR_n = (!AS_n & !RW & !UDS_n);
 
-DTACK_ENABLE_P = 0;
+VPA = (A_1 & A_0 & FC1 & FC2 & FC0 & !A_2);
 
-!SELECT = (!A5 & A6 & !A7 & !A8 & !A9 & !A10 & !A11 & !A12 & !A13 & !A14 & !A15 & !A16 & !A17 & !A18 & A19 & !IOSEL);
+!IDECS_n = ((!A_18 & !A_17 & !A_16 & !A_15 & !A_14 & !A_13 & !A_12 & !A_11 & !A_10 & !A_9 & !A_8 & !A_7 & !A_6 & A_5 & !A_4 & !A_3 & !IOSEL_n & !FC1)
+	# (!A_18 & !A_17 & !A_16 & !A_15 & !A_14 & !A_13 & !A_12 & !A_11 & !A_10 & !A_9 & !A_8 & !A_7 & !A_6 & A_5 & !A_4 & !A_3 & !IOSEL_n & !FC2)
+	# (!A_18 & !A_17 & !A_16 & !A_15 & !A_14 & !A_13 & !A_12 & !A_11 & !A_10 & !A_9 & !A_8 & !A_7 & !A_6 & A_5 & !A_4 & !A_3 & !FC0 & !IOSEL_n));
 
-VPA = 0;
-
-Ca.D = ((Ca.Q & Cb.Q & DTACK_ENABLE.Q)
-	# (Ca.Q & Cb.Q & !DTACK.Q)
-	# (!Ca.Q & !Cb.Q & !DTACK.Q & !DTACK_ENABLE.Q & R_nW & SELECT & !LDS)
-	# (!Ca.Q & !Cb.Q & !DTACK.Q & !DTACK_ENABLE.Q & R_nW & SELECT & !UDS));
-
-!CS1 = (!A4 & SELECT);
-
-!CS3 = (A4 & SELECT);
-
-!LSEL = (!LDS & SELECT);
-
-Cb.D = ((Ca.Q & Cb.Q & DTACK_ENABLE.Q)
-	# (Ca.Q & Cb.Q & !DTACK.Q)
-	# (!Ca.Q & !Cb.Q & !DTACK.Q & !DTACK_ENABLE.Q & R_nW & SELECT & !LDS)
-	# (!Ca.Q & !Cb.Q & !DTACK.Q & !DTACK_ENABLE.Q & R_nW & SELECT & !UDS));
-
-DTACK_ENABLE.D = ((!Ca.Q & !Cb.Q & !DTACK.Q & !LDS & !R_nW & SELECT)
-	# (!Ca.Q & !Cb.Q & !DTACK.Q & !R_nW & SELECT & !UDS)
-	# (Ca.Q & Cb.Q & !DTACK.Q)
-	# (!Ca.Q & !Cb.Q & !DTACK.Q & DTACK_ENABLE.Q));
-
-!WR = ((!R_nW & SELECT & !LDS)
-	# (!R_nW & SELECT & !UDS));
-
-!RD = ((Ca.Q & R_nW & SELECT & !LDS)
-	# (Ca.Q & R_nW & SELECT & !UDS));
-
-!USEL = (!UDS & SELECT);
-
-DTACK.C = CLOCK;
-
-DTACK.OE = DTACK_ENABLE.Q;
-
-VPA.OE = (A1 & A2 & !A3 & FC0 & FC1 & FC2);
-
-Ca.C = CLOCK;
-
-Cb.C = CLOCK;
-
-DTACK_ENABLE.C = CLOCK;
+DTACK_n.OE = ((!A_18 & !A_17 & !A_16 & !A_15 & !A_14 & !A_13 & !A_12 & !A_11 & !A_10 & !A_9 & !A_8 & !A_7 & !A_6 & A_5 & !A_4 & !A_3 & !IOSEL_n & !FC1)
+	# (!A_18 & !A_17 & !A_16 & !A_15 & !A_14 & !A_13 & !A_12 & !A_11 & !A_10 & !A_9 & !A_8 & !A_7 & !A_6 & A_5 & !A_4 & !A_3 & !IOSEL_n & !FC2)
+	# (!A_18 & !A_17 & !A_16 & !A_15 & !A_14 & !A_13 & !A_12 & !A_11 & !A_10 & !A_9 & !A_8 & !A_7 & !A_6 & A_5 & !A_4 & !A_3 & !FC0 & !IOSEL_n));
 
 
 PLCC84 Pin/Node Placement:
 ------------------------------------
-Pin 4  = DTACK; /* MC 16 */
-Pin 5  = WR; /* MC 15 */
-Pin 6  = RD; /* MC 14 */
-Pin 8  = CS1; /* MC 13 */
-Pin 9  = CS3; /* MC 12 */
-Pin 10 = LSEL; /* MC 11 */ 
-Pin 11 = USEL; /* MC 10 */ 
-Pin 12 = Ca_P; /* MC  9 */
+Pin 4  = DTACK_n; /* MC 16 */
+Pin 5  = IDEBUF_n; /* MC 15 */
+Pin 8  = VPA; /* MC 13 */
+Pin 10 = AS_n; /* MC 11 */ 
+Pin 11 = A_0; /* MC 10 */ 
+Pin 12 = IOSEL_n; /* MC  9 */
 Pin 14 = TDI; /* MC  8 */
-Pin 15 = DTACK_P; /* MC  7 */
-Pin 16 = Cb_P; /* MC  6 */
-Pin 17 = DTACK_ENABLE_P; /* MC  5 */
-Pin 21 = UDS; /* MC  2 */
-Pin 22 = LDS; /* MC  1 */
+Pin 15 = UDS_n; /* MC  7 */
+Pin 16 = A_18; /* MC  6 */
+Pin 17 = A_17; /* MC  5 */
+Pin 18 = A_16; /* MC  4 */
+Pin 20 = A_15; /* MC  3 */
+Pin 21 = A_14; /* MC  2 */
+Pin 22 = A_13; /* MC  1 */
 Pin 23 = TMS; /* MC 32 */ 
-Pin 24 = VPA; /* MC 31 */ 
-Pin 25 = A17; /* MC 30 */ 
-Pin 27 = A16; /* MC 29 */ 
-Pin 28 = A15; /* MC 28 */ 
-Pin 29 = A14; /* MC 27 */ 
-Pin 30 = A13; /* MC 26 */ 
-Pin 31 = A12; /* MC 25 */ 
-Pin 33 = A11; /* MC 24 */ 
-Pin 34 = A10; /* MC 23 */ 
-Pin 35 = A9; /* MC 22 */ 
-Pin 36 = A8; /* MC 21 */ 
-Pin 37 = A7; /* MC 20 */ 
-Pin 39 = A6; /* MC 19 */ 
-Pin 40 = A5; /* MC 18 */ 
-Pin 41 = R_nW; /* MC 17 */ 
-Pin 44 = A18; /* MC 33 */ 
-Pin 45 = A19; /* MC 34 */ 
-Pin 46 = IOSEL; /* MC 35 */ 
-Pin 48 = A4; /* MC 36 */ 
-Pin 49 = A1; /* MC 37 */ 
-Pin 50 = A2; /* MC 38 */ 
-Pin 51 = A3; /* MC 39 */ 
-Pin 52 = FC0; /* MC 40 */ 
-Pin 54 = FC1; /* MC 41 */ 
-Pin 55 = FC2; /* MC 42 */ 
+Pin 24 = A_12; /* MC 31 */ 
+Pin 25 = A_11; /* MC 30 */ 
+Pin 27 = A_10; /* MC 29 */ 
+Pin 28 = A_9; /* MC 28 */ 
+Pin 29 = A_8; /* MC 27 */ 
+Pin 30 = A_7; /* MC 26 */ 
+Pin 31 = A_6; /* MC 25 */ 
+Pin 33 = A_5; /* MC 24 */ 
+Pin 34 = A_4; /* MC 23 */ 
+Pin 35 = A_3; /* MC 22 */ 
+Pin 36 = A_2; /* MC 21 */ 
+Pin 37 = A_1; /* MC 20 */ 
 Pin 62 = TCK; /* MC 48 */ 
+Pin 68 = IDEWR_n; /* MC 53 */ 
+Pin 69 = IDERD_n; /* MC 54 */ 
+Pin 70 = RW; /* MC 55 */ 
 Pin 71 = TDO; /* MC 56 */ 
-Pin 83 = CLOCK;
-PINNODE 315 = SELECT; /* MC 15 Foldback */
-PINNODE 603 = DTACK_ENABLE; /* MC 3 Feedback */
-PINNODE 604 = Ca; /* MC 4 Feedback */
-PINNODE 608 = Cb; /* MC 8 Feedback */
+Pin 77 = IDECS_n; /* MC 61 */ 
+Pin 79 = FC2; /* MC 62 */ 
+Pin 80 = FC1; /* MC 63 */ 
+Pin 81 = FC0; /* MC 64 */ 
+PINNODE 608 = DTACK_n.OE; /* MC 8 Feedback */
 
 ** Resource Usage **
 
@@ -348,7 +303,7 @@ DCERP Field = Summary of Allocations.
 ||||
 ||||__Reset [g,r,-]      ==  g= Global AR, r = PT reset, - No reset.
 |||
-|||___Clock Enable [e,-] ==  e = Product Term, - always enabled, - none.
+|||___Clock Enable [e,-] ==  e = Product Term, - always enabled.
 ||
 ||____Clock [c,g,-],     ==  c = Product term, g = Global term, - No Clock.
 |
@@ -356,94 +311,102 @@ DCERP Field = Summary of Allocations.
 
 For input only = INPUT.
 
-MCell Pin# Oe   PinDrive       DCERP  FBDrive      DCERP  Foldback  CascadeOut     TotPT output_slew
-MC1   22   --   LDS            INPUT  --                  --        --             0     slow
-MC2   21   --   UDS            INPUT  --                  --        --             0     slow
-MC3   20        --                    DTACK_ENABLE Dg---  --        --             4     slow
-MC4   18        --                    Ca           Dg---  --        --             4     slow
-MC5   17   on   DTACK_ENABLE_P C----  --                  --        --             0     slow
-MC6   16   on   Cb_P           C----  --                  --        --             0     slow
-MC7   15   on   DTACK_P        C----  --                  --        --             0     slow
-MC8   14   --   TDI            INPUT  Cb           Dg---  --        --             4     slow
-MC9   12   on   Ca_P           C----  --                  --        --             0     slow
-MC10  11   on   USEL           C----  --                  --        --             1     slow
-MC11  10   on   LSEL           C----  --                  --        --             1     slow
-MC12  9    on   CS3            C----  --                  --        --             1     slow
-MC13  8    on   CS1            C----  --                  --        --             1     slow
-MC14  6    on   RD             C----  --                  --        --             2     slow
-MC15  5    on   WR             C----  --                  SELECT    --             3     slow
-MC16  4    PT   DTACK          Dg---  --                  NA        --             5     slow
-MC17  41   --   R_nW           INPUT  --                  --        --             0     slow
-MC18  40   --   A5             INPUT  --                  --        --             0     slow
-MC19  39   --   A6             INPUT  --                  --        --             0     slow
-MC20  37   --   A7             INPUT  --                  --        --             0     slow
-MC21  36   --   A8             INPUT  --                  --        --             0     slow
-MC22  35   --   A9             INPUT  --                  --        --             0     slow
-MC23  34   --   A10            INPUT  --                  --        --             0     slow
-MC24  33   --   A11            INPUT  --                  --        --             0     slow
-MC25  31   --   A12            INPUT  --                  --        --             0     slow
-MC26  30   --   A13            INPUT  --                  --        --             0     slow
-MC27  29   --   A14            INPUT  --                  --        --             0     slow
-MC28  28   --   A15            INPUT  --                  --        --             0     slow
-MC29  27   --   A16            INPUT  --                  --        --             0     slow
-MC30  25   --   A17            INPUT  --                  --        --             0     slow
-MC31  24   PT   VPA            C----  --                  --        --             1     slow
-MC32  23   --   TMS            INPUT  --                  --        --             0     slow
-MC33  44   --   A18            INPUT  --                  --        --             0     slow
-MC34  45   --   A19            INPUT  --                  --        --             0     slow
-MC35  46   --   IOSEL          INPUT  --                  --        --             0     slow
-MC36  48   --   A4             INPUT  --                  --        --             0     slow
-MC37  49   --   A1             INPUT  --                  --        --             0     slow
-MC38  50   --   A2             INPUT  --                  --        --             0     slow
-MC39  51   --   A3             INPUT  --                  --        --             0     slow
-MC40  52   --   FC0            INPUT  --                  --        --             0     slow
-MC41  54   --   FC1            INPUT  --                  --        --             0     slow
-MC42  55   --   FC2            INPUT  --                  --        --             0     slow
-MC43  56        --                    --                  --        --             0     slow
-MC44  57        --                    --                  --        --             0     slow
-MC45  58        --                    --                  --        --             0     slow
-MC46  60        --                    --                  --        --             0     slow
-MC47  61        --                    --                  --        --             0     slow
-MC48  62   --   TCK            INPUT  --                  --        --             0     slow
-MC49  63        --                    --                  --        --             0     slow
-MC50  64        --                    --                  --        --             0     slow
-MC51  65        --                    --                  --        --             0     slow
-MC52  67        --                    --                  --        --             0     slow
-MC53  68        --                    --                  --        --             0     slow
-MC54  69        --                    --                  --        --             0     slow
-MC55  70        --                    --                  --        --             0     slow
-MC56  71   --   TDO            INPUT  --                  --        --             0     slow
-MC57  73        --                    --                  --        --             0     slow
-MC58  74        --                    --                  --        --             0     slow
-MC59  75        --                    --                  --        --             0     slow
-MC60  76        --                    --                  --        --             0     slow
-MC61  77        --                    --                  --        --             0     slow
-MC62  79        --                    --                  --        --             0     slow
-MC63  80        --                    --                  --        --             0     slow
-MC64  81        --                    --                  --        --             0     slow
-MC0   2         --                    --                  --        --             0     slow
-MC0   1         --                    --                  --        --             0     slow
-MC0   84        --                    --                  --        --             0     slow
-MC0   83        CLOCK          INPUT  --                  --        --             0     slow
 
-Logic Array Block	Logic Cells	I/O Pins	Foldbacks	TotalPT		FanIN	Cascades
-A: LC1	- LC16		14/16(87%)	14/16(87%)	1/16(6%)	26/80(32%)	(24)	0
-B: LC17	- LC32		1/16(6%)	16/16(100%)	0/16(0%)	1/80(1%)	(6)	0
-C: LC33	- LC48		0/16(0%)	11/16(68%)	0/16(0%)	0/80(0%)	(0)	0
-D: LC49	- LC64		0/16(0%)	1/16(6%)	0/16(0%)	0/80(0%)	(0)	0
+SO Pin Options Field = Summary of Allocations.
+||
+||_OpenCol [o,-]      ==  o = Open Collector enabled, - CMOS drive.
+|
+|__Slew [s,f]         ==  Output Slew/Drive rate, s = slow/low, f = fast/hi drive.
 
-Total dedicated input used:	1/4 	(25%)
-Total I/O pins used		42/64 	(65%)
-Total Logic cells used 		15/64 	(23%)
-Total Flip-Flop used 		4/64 	(6%)
-Total Foldback logic used 	1/64 	(1%)
-Total Nodes+FB/MCells 		16/64 	(25%)
+
+MCell Pin# Oe   PinDrive  DCERP  FBDrive    DCERP  Foldback  CascadeOut     TotPT SO
+MC1   22   --   A_13      INPUT  --                --        --             0     f- 
+MC2   21   --   A_14      INPUT  --                --        --             0     f- 
+MC3   20   --   A_15      INPUT  --                --        --             0     f- 
+MC4   18   --   A_16      INPUT  --                --        --             0     f- 
+MC5   17   --   A_17      INPUT  --                --        --             0     f- 
+MC6   16   --   A_18      INPUT  --                --        --             0     f- 
+MC7   15   --   UDS_n     INPUT  --                --        --             0     f- 
+MC8   14   --   TDI       INPUT  DTACK_n.OE C----  --        --             3     f- 
+MC9   12   --   IOSEL_n   INPUT  --                --        --             0     f- 
+MC10  11   --   A_0       INPUT  --                --        --             0     f- 
+MC11  10   --   AS_n      INPUT  --                --        --             0     f- 
+MC12  9         --               --                --        --             0     f- 
+MC13  8    on   VPA       C----  --                --        --             1     f- 
+MC14  6         --               --                --        --             0     f- 
+MC15  5    on   IDEBUF_n  C----  --                --        --             1     f- 
+MC16  4    PT   DTACK_n   C----  --                --        --             1     f- 
+MC17  41        --               --                --        --             0     f- 
+MC18  40        --               --                --        --             0     f- 
+MC19  39        --               --                --        --             0     f- 
+MC20  37   --   A_1       INPUT  --                --        --             0     f- 
+MC21  36   --   A_2       INPUT  --                --        --             0     f- 
+MC22  35   --   A_3       INPUT  --                --        --             0     f- 
+MC23  34   --   A_4       INPUT  --                --        --             0     f- 
+MC24  33   --   A_5       INPUT  --                --        --             0     f- 
+MC25  31   --   A_6       INPUT  --                --        --             0     f- 
+MC26  30   --   A_7       INPUT  --                --        --             0     f- 
+MC27  29   --   A_8       INPUT  --                --        --             0     f- 
+MC28  28   --   A_9       INPUT  --                --        --             0     f- 
+MC29  27   --   A_10      INPUT  --                --        --             0     f- 
+MC30  25   --   A_11      INPUT  --                --        --             0     f- 
+MC31  24   --   A_12      INPUT  --                --        --             0     f- 
+MC32  23   --   TMS       INPUT  --                --        --             0     f- 
+MC33  44        --               --                --        --             0     f- 
+MC34  45        --               --                --        --             0     f- 
+MC35  46        --               --                --        --             0     f- 
+MC36  48        --               --                --        --             0     f- 
+MC37  49        --               --                --        --             0     f- 
+MC38  50        --               --                --        --             0     f- 
+MC39  51        --               --                --        --             0     f- 
+MC40  52        --               --                --        --             0     f- 
+MC41  54        --               --                --        --             0     f- 
+MC42  55        --               --                --        --             0     f- 
+MC43  56        --               --                --        --             0     f- 
+MC44  57        --               --                --        --             0     f- 
+MC45  58        --               --                --        --             0     f- 
+MC46  60        --               --                --        --             0     f- 
+MC47  61        --               --                --        --             0     f- 
+MC48  62   --   TCK       INPUT  --                --        --             0     f- 
+MC49  63        --               --                --        --             0     f- 
+MC50  64        --               --                --        --             0     f- 
+MC51  65        --               --                --        --             0     f- 
+MC52  67        --               --                --        --             0     f- 
+MC53  68   on   IDEWR_n   C----  --                --        --             1     f- 
+MC54  69   on   IDERD_n   C----  --                --        --             1     f- 
+MC55  70   --   RW        INPUT  --                --        --             0     f- 
+MC56  71   --   TDO       C----  --                --        --             0     f- 
+MC57  73        --               --                --        --             0     f- 
+MC58  74        --               --                --        --             0     f- 
+MC59  75        --               --                --        --             0     f- 
+MC60  76        --               --                --        --             0     f- 
+MC61  77   on   IDECS_n   C----  --                --        --             3     f- 
+MC62  79   --   FC2       INPUT  --                --        --             0     f- 
+MC63  80   --   FC1       INPUT  --                --        --             0     f- 
+MC64  81   --   FC0       INPUT  --                --        --             0     f- 
+MC0   2         --               --                --        --             0     f- 
+MC0   1         --               --                --        --             0     f- 
+MC0   84        --               --                --        --             0     f- 
+MC0   83        --               --                --        --             0     f- 
+
+Logic Array Block			Macro Cells	I/O Pins	Foldbacks	TotalPT	FanIN		Cascades
+A: MC1	- MC16		4/16(25%)	14/16(87%)	0/16(0%)	6/80(7%)	25/40(62%)	0
+B: MC17	- MC32		0/16(0%)	13/16(81%)	0/16(0%)	0/80(0%)	23/40(57%)	0
+C: MC33	- MC48		0/16(0%)	1/16(6%)	0/16(0%)	0/80(0%)	23/40(57%)	0
+D: MC49	- MC64		4/16(25%)	8/16(50%)	0/16(0%)	5/80(6%)	23/40(57%)	0
+
+Total dedicated input used:	0/4 	(0%)
+Total I/O pins used		36/64 	(56%)
+Total Macro cells used 		8/64 	(12%)
+Total Flip-Flop used 		0/64 	(0%)
+Total Foldback logic used 	0/64 	(0%)
+Total Nodes+FB/MCells 		8/64 	(12%)
 Total cascade used 		0
-Total input pins 		31
-Total output pins 		12
-Total Pts 			27
-Creating pla file Z:\USERS\MALCOLM\ROSCO-IDE\CODE\PLD\IDE.tt3 with 0 inputs 0 outputs, 0 pins 0 nodes and 0 pterms...
+Total input pins 			29
+Total output pins 		7
+Total Pts 				11
+Creating pla file ide.tt3 with 0 inputs 0 outputs, 0 pins 0 nodes and 0 pterms...
 
 ----------------  End fitter, Design FITS
-$Device PLCC84 fits 
+$Device PLCC84 fits; JTAG ON; Secure OFF
 FIT1504 completed in 0.00 seconds
